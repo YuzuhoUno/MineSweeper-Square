@@ -1,0 +1,339 @@
+:root{
+    /* --bg-parchment: #f5f5f0; */
+    --bg-panel: #9bc3db;
+    --bg-parchment: #FFFFFF;
+    --ink-primary: #27272a;
+    --border-line: #27272a;
+    --accent-royal: #F3D58D;
+    --radius-md: 12px;
+    --shadow-soft: 0 8px 24px #27272a;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+/* Main Screen(font, bg-color) */
+body{
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--ink-primary);
+    background: var(--bg-parchment);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 20px;
+}
+/* Main Screen(adding space) */
+.app-container{
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* MineSweeper(title) */
+.main-header{
+    text-align: center;
+}
+.main-header h1{
+    margin: 0 0 6px;
+    font-size: 70px;
+    letter-spacing: 1px;
+}
+
+/* Box of name, difficulty, saved games etc... */
+.card{
+    background: var(--bg-panel);
+    border: var(--border-line) 1px transparent;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    padding: 24px;
+}
+.form-group{
+    margin-bottom: 20px;
+}
+
+/* Name input */
+.input-field{
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 25px;
+    margin-bottom: 15px;
+    border: 2px solid var(--border-line);
+    border-radius: var(--radius-md);
+    transition: border-color 0.2s ease;
+}
+.input-field:focus{
+    outline: none;
+    border-color: var(--accent-royal);
+}
+
+.error-msg {
+    color: #d90429;
+    font-size: 20px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+.hidden {
+    display: none !important;
+}
+
+/* Difficulty */
+.radio-group{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.radio-label{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+.radio-label input[type="radio"]{
+    accent-color: var(--accent-royal);
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+/* Button(Start New Game, Load Saved...) */
+.button-group{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.btn{
+    padding: 18px 25px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    border: 1px solid;
+    cursor: pointer;
+}
+.btn:hover{
+    transform: translateY(-2px);
+}
+.btn:active{
+    transform: scale(0.98);
+}
+.btn-primary{
+    background: var(--accent-royal);
+    color: #ffffff;
+}
+.btn-secondary{
+    background: var(--bg-parchment);
+    color: var(--ink-primary);
+    border-color: var(--border-line);
+}
+
+.panel-container:has(.panel:not(.hidden)){
+    margin-top: 20px;
+    border-top: 1px solid var(--border-line);
+}
+.panel h3{
+    font-size: 30px;
+}
+
+/* Saved Games List */
+.saved-info{
+    font-size: 23px;
+}
+.save-item{
+    display: flex;
+    justify-content: space-between;
+}
+.saved-games-button{
+    display: flex;
+    gap: 10px;
+}
+
+/* Leaderboard Ranking */
+.leaderboard-content{
+    width: 100%;
+    margin-top: 40px;
+    text-align: center;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+.leaderboard-content th,
+.leaderboard-content td{
+    padding: 12px 12px;
+    border: #8c8c90 1px solid;
+    
+}
+.leaderboard-content th{
+    background-color: #005a9c;
+    font-weight: 500;
+    color: #ffffff;
+}
+.leaderboard-content td{
+    color: var(--ink-primary);
+    background: var(--bg-parchment);
+    word-break: break-word;
+}
+.leaderboard-content p{
+    text-align: left;
+}
+
+/* Buttons inside Leaderboard */
+.tabs{
+    margin-top: 40px;
+}
+.tab-btn{
+    padding: 8px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    border: 1px solid;
+    cursor: pointer;
+}
+.tab-btn:active{
+    transform: scale(0.98);
+}
+.tab-btn.active{
+    background: var(--accent-royal);
+    color: #ffffff;
+}
+
+/* Game Rules & How to play */
+ol, p{
+    font-size: 20px;
+}
+.descriptions{
+    margin-left: 20px;
+}
+
+
+/* Game Screen */
+.game-info-bar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: var(--accent-royal);
+    border-radius: var(--radius-md);
+    padding: 15px 25px;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+.info-item{
+    display: flex;
+    font-size: 30px;
+}
+/* Player, Level, Time */
+.val{
+    margin-left: 10px;
+}
+
+.btn-success{
+    background: #005a9c;
+    color: #ffffff;
+}
+.btn-danger{
+    background: #c40c2b;
+    color: #ffffff;
+}
+.mini-description{
+    margin-left: 10px;
+}
+
+/* Game Grid */
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+.board-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 700px;
+    padding: 20px;
+    margin: 0 auto;
+}
+.grid-board{
+    display: grid;
+    width: 100%;
+    border: var(--border-line) 3px solid;
+    background: var(--bg-panel);
+    gap: 2px;
+    user-select: none;
+    touch-action: none;
+}
+.cell{
+    position: relative;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-parchment);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    overflow: hidden;
+}
+.cell.revealed:not([data-mines]):not(.mine){
+    background: #8c8c90;
+    cursor: not-allowed;
+}
+.cell.mine{
+    cursor: not-allowed;
+}
+.cell.mine, .cell.flagged{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Vitory & Lose Screen */
+.modal-overlay{
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.modal-card{
+    max-width: 480px;
+    width: 100%;
+    background: #efe0b9;
+    box-shadow: var(--shadow-soft);
+    padding: 30px 10px;
+}
+.modal-card h2{
+    font-size: 40px;
+    text-align: center;
+}
+.details{
+    margin: 18px 0;
+    padding: 14px;
+    background: var(--bg-parchment);
+    border-radius: var(--radius-md);
+    border-color: var(--accent-royal);
+    gap: 8px;
+}
+
+.toast{
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    background: #3c3c3d;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: var(--radius-md);
+}

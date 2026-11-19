@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MineSweeper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Main Header -->
+         <header class="main-header">
+            <h1>MineSweeper</h1>
+         </header>
+
+         <!-- Main Menu -->
+          <section class="screen active" class-screen="main-menu">
+            <div class="card">
+                <div class="form-group">
+                    <label for="player-name-input">Enter Player Name:</label>
+                    <input type="text" id="player-name-input" class="input-field">
+                    <p id="name-error" class="error-msg hidden">Please enter your player name!</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Select Difficulty Level:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="difficulty" value="easy" checked> Easy
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="difficulty" value="normal"> Normal
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="difficulty" value="hard"> Hard                            
+                        </label>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" class-action="start-game">Start New Game</button>
+                    <button class="btn btn-secondary" class-action="view-saved">Load Saved</button>
+                    <button class="btn btn-secondary" class-action="start-leaderboard">Leaderboard</button>
+                    <button class="btn btn-secondary" class-action="start-rules">Game Rules & How to play</button>
+                </div>
+
+                <div class="panel-container">
+                    <!-- Saved Games List -->
+                    <div class="panel hidden" class-panel="saves">
+                        <h3>Saved Games</h3>
+                        <div class="saves-list"></div>
+                    </div>
+
+                    <!-- Leaderboard Panel -->
+                    <div class="panel hidden" class-panel="leaderboard">
+                        <div class="tabs">
+                            <button class="tab-btn active" class-tab="easy">Easy</button>
+                            <button class="tab-btn" class-tab="normal">Normal</button>
+                            <button class="tab-btn" class-tab="hard">Hard</button>
+                        </div>
+                        <div class="leaderboard-content"></div>
+                    </div>
+
+                    <!-- Rules Panel -->
+                    <div class="panel hidden" class-panel="rules">
+                        <h3>Game Rules & How to play</h3>
+                        <ol>
+                            <li>You win when all non-mine tiles are revealed.</li>
+                            <li>If you open a tile with a mine, it's game over immediately.</li>
+                        </ol>
+                            <p class="descriptions">Left click: Open the tile <br>
+                            Right-click: Put a flag🚩 on a tile where you think a mine is hidden to mark it</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gameplay Screen -->
+        <section class="screen" class-screen="gameplay">
+            <header class="game-info-bar">
+                <div class="info-item">
+                    <span class="label">Player:</span>
+                    <span class="val" class-info="player-name">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Level:</span>
+                    <span class="val" class-info="level-name">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Time: </span>
+                    <span class="val" class-info="timer">00:00</span>
+                </div>
+            </header>
+
+            <div class="mini-description">
+                Left Click: Open the tile <br>
+                Right Click: Put and remove a 🚩 on the tile
+            </div>
+            
+            <!-- Game Board Grid -->
+            <main class="board-container">
+                <div class="grid-board"></div>
+            </main>
+
+            <div class="game-controls">
+                <button class="btn btn-success" class-action="save-game">Save Game</button>
+                <button class="btn btn-danger" class-action="quit-game">Return to Main Menu</button>
+            </div>
+        </section>
+
+        <!-- Victory Overlay -->
+        <div class="modal-overlay hidden" class-modal="victory">
+            <div class="modal-card">
+                <h2>Victory!</h2>
+                <div class="details">
+                    <p><strong>Player:</strong> <span class-info="victory-player"></span></p>
+                    <p><strong>Level:</strong> <span class-info="victory-level"></span></p>
+                    <p><strong>Completion Time:</strong> <span class-info="victory-time"></span></p>
+                </div>
+                <button class="btn btn-primary" class-action="continue-victory">Try Again</button>
+                <button class="btn btn-secondary" class-action="close-victory">Back to Main Menu</button>
+            </div>
+        </div>
+
+        <!-- Lose Overlay -->
+        <div class="modal-overlay hidden" class-modal="lose">
+            <div class="modal-card">
+                <h2>Lose!</h2>
+                <div class="details">
+                    <p><strong>Player:</strong> <span class-info="lose-player"></span></p>
+                    <p><strong>Level:</strong> <span class-info="lose-level"></span></p>
+                    <p><strong>Completion Time:</strong> <span class-info="lose-time"></span></p>
+                </div>
+                <button class="btn btn-primary" class-action="continue-victory">Try Again</button>
+                <button class="btn btn-secondary" class-action="close-victory">Back to Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
